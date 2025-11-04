@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -31,10 +28,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -53,6 +47,25 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyCM4yyJ_t15AwbrPJZSkIGdVGcTpYc5PPw',
+    appId: '1:117424652869:ios:274b2e964b5dd2e564992c',
+    messagingSenderId: '117424652869',
+    projectId: 'test-loggin-5de7a',
+    storageBucket: 'test-loggin-5de7a.firebasestorage.app',
+    iosBundleId: 'com.example.logginTest',
+  );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyCwnM28TIfZJ52aq2OMTnKI-NgSfUftVbE',
+    appId: '1:117424652869:web:2088ed90675a43ae64992c',
+    messagingSenderId: '117424652869',
+    projectId: 'test-loggin-5de7a',
+    authDomain: 'test-loggin-5de7a.firebaseapp.com',
+    storageBucket: 'test-loggin-5de7a.firebasestorage.app',
+    measurementId: 'G-S3D4M5ZSS9',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyCM4yyJ_t15AwbrPJZSkIGdVGcTpYc5PPw',
     appId: '1:117424652869:ios:274b2e964b5dd2e564992c',
     messagingSenderId: '117424652869',
